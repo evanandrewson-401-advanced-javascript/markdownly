@@ -5,28 +5,12 @@ exports[`App Component renders App 1`] = `
   <Header />
   <Switch>
     <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Document)",
-          "type": [Function],
-        }
-      }
+      component={[Function]}
       exact={true}
       path="/"
     />
     <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Document)",
-          "type": [Function],
-        }
-      }
+      component={[Function]}
       path="/:id"
     />
   </Switch>
