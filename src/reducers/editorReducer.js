@@ -1,7 +1,6 @@
 import { UPDATE_MARKDOWN, NEW_TAB, CHANGE_FILE, DELETE_TAB, CHANGE_TITLE, TOGGLE_EDIT } from '../actions/markdownActions';
 import { newId } from '../utils/idGenerator';
 import { loadState } from '../utils/localStorage';
-// import { loadState } from '../utils/localStorage';
 
 const id1 = newId();
 const id2 = newId();
@@ -27,7 +26,7 @@ let initialState = {
 };
 
 const persistedState = loadState();
-  if(persistedState) {
+if(persistedState) {
   initialState = persistedState;
 }
 
@@ -42,8 +41,12 @@ const reducer = (state = initialState, action) => {
           return file;
         })
       };
-    case CHANGE_FILE:
+    case CHANGE_FILE: {
+
+      // const pathName = `/${action.payload}`;
+
       return { ...state, focus: action.payload };
+    }
     case NEW_TAB: {
       let newID = newId();
       return {

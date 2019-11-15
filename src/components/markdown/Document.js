@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Preview from './Preview';
 import Editor from './Editor';
 import styles from './Document.css';
@@ -10,7 +10,11 @@ import { updateMarkdown, changeFile, newTab, deleteTab, changeTitle, toggleEdit 
 
 
 
-const Document = ({ markdown, files, changeMarkdown, handleAdd, handleClick, handleDelete, handleTitle, editTitle, handleTitleEdit }) => {
+const Document = ({ match, markdown, files, changeMarkdown, handleAdd, handleClick, handleDelete, handleTitle, editTitle, handleTitleEdit, handleLoad }) => {
+
+  useEffect(() => {
+    handleLoad(match.params.id);
+  }, []);
 
   return (
     <>
@@ -30,7 +34,10 @@ const Document = ({ markdown, files, changeMarkdown, handleAdd, handleClick, han
       </div>
     </>
   );
+
 };
+
+
 
 
 const mapStateToProps = state => ({
@@ -47,6 +54,10 @@ const mapDispatchToProps = dispatch => ({
   handleClick({ currentTarget }) {
     dispatch(changeFile(currentTarget.id));
   },
+  handleLoad(id) {
+    dispatch(changeFile(id));
+  },
+
   handleAdd() {
     dispatch(newTab());
   },
