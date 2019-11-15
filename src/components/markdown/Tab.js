@@ -22,7 +22,6 @@ Tab.propTypes = {
   title: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired,
-  focus: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   handleTitle: PropTypes.func.isRequired,
   editTitle: PropTypes.shape({
